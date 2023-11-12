@@ -28,7 +28,7 @@ def process_canny(input_image, image_resolution, ddim_steps, fore_scale, custom,
     style_file = None
     outdir = './demo_output/ugly'
     if embtype=='Type 1':
-        emb = './logs/ugly_2023-10-26T16-43-09_ugly/checkpoints/embeddings.pt'
+        emb = './logs/ugly/checkpoints/embeddings.pt'
         style_file = './data/ugly/ugly.png'
 
     content_dir = input_image
@@ -82,7 +82,7 @@ def process(input_image, image_resolution, ddim_steps, fore_scale, embtype):
     outdir = './demo_output/ugly'
     
     if embtype=='Type 1':
-        emb = './logs/ugly_2023-10-26T16-43-09_ugly/checkpoints/embeddings.pt'
+        emb = './logs/ugly/checkpoints/embeddings.pt'
         style_file = './data/ugly/ugly.png'
 
     content_dir = input_image

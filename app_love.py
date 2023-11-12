@@ -29,10 +29,10 @@ def process_canny(input_image, image_resolution, ddim_steps, fore_scale, custom,
     outdir = './demo_output/love'
     
     if embtype=='Type 1':
-        emb = './logs/yumi_12023-10-29T21-23-14_yumi_1/checkpoints/embeddings.pt'
+        emb = './logs/yumi/checkpoints/embeddings.pt'
         style_file = './data/yumi/yumi.png'
     # elif embtype=='Type 2':
-    #     emb = './InST/logs/yumi_22023-10-30T02-58-44_yumi_2/checkpoints/embeddings.pt'
+    #     emb = './InST/logs/yumi/checkpoints/embeddings.pt'
     #     style_file = './data/new_data/yumi_2/yumi2.png'
     
     content_dir = input_image
@@ -86,10 +86,10 @@ def process(input_image, image_resolution, ddim_steps, fore_scale, embtype):
     outdir = './demo_output/love'
     
     if embtype=='Type 1':
-        emb = './InST/logs/yumi_12023-10-29T21-23-14_yumi_1/checkpoints/embeddings.pt'
+        emb = './logs/yumi/checkpoints/embeddings.pt'
         style_file = './data/yumi/yumi.png'
     # elif embtype=='Type 2':
-    #     emb = './InST/logs/yumi_22023-10-30T02-58-44_yumi_2/checkpoints/embeddings.pt'
+    #     emb = './InST/logs/yumi/checkpoints/embeddings.pt'
     #     style_file = './data/new_data/yumi_2/yumi2.png'
     
     content_dir = input_image

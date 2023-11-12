@@ -27,7 +27,7 @@ def process_canny(input_image, image_resolution, ddim_steps, fore_scale, custom,
     style_file = None
     outdir = './demo_output/yeosin'
     if embtype=='Type 1':
-        emb = './logs/yeosin_72023-10-30T04-50-10_yeosin_7/checkpoints/embeddings.pt'
+        emb = './logs/yeosin/checkpoints/embeddings.pt'
         style_file = './data/yeosin/yeosin.jpg'
     
     content_dir = input_image
@@ -81,8 +81,8 @@ def process(input_image, image_resolution, ddim_steps, fore_scale, embtype):
     outdir = './demo_output/yeosin'
     
     if embtype=='Type 1':
-        emb = './logs/yeosin_72023-10-30T04-50-10_yeosin_7/checkpoints/embeddings.pt'
-        style_file = './data_t/yeosin/yeosin.jpg'
+        emb = './logs/yeosin/checkpoints/embeddings.pt'
+        style_file = './data/yeosin/yeosin.jpg'
         
     content_dir = input_image
     fg_wt = fore_scale

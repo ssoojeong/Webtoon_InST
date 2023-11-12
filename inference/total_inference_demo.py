@@ -17,7 +17,7 @@ from DIS.IS_Net.Inference import *
 from DIS.IS_Net.models.isnet import ISNetGTEncoder, ISNetDIS
 
 #inference
-from InST.inference_guided import *
+from inference_guided import *
 
 #로고 이미지
 from resyn import *

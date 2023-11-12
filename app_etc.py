@@ -30,7 +30,7 @@ def process_canny(input_image, image_resolution, ddim_steps, fore_scale, custom,
     style_file = None
     outdir = './demo_output/etc'
     if embtype=='Type 1': 
-        emb = './logs/etc_12023-10-12T16-38-28_style_1/checkpoints/embeddings.pt'
+        emb = './logs/etc/checkpoints/embeddings.pt'
         style_file = './data/etc/1.png'
 
     content_dir = input_image
@@ -82,7 +82,7 @@ def process(input_image, image_resolution, ddim_steps, fore_scale, embtype):
     style_file = None
     outdir = './demo_output/etc'
     if embtype=='Type 1':
-        emb = './InST/logs/etc_12023-10-12T16-38-28_style_1/checkpoints/embeddings.pt'
+        emb = './logs/etc/checkpoints/embeddings.pt'
         style_file = './data/etc/1.png'
  
     content_dir = input_image
