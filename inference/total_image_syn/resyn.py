@@ -16,7 +16,7 @@ def print_final(save_path, outdir):
     w_m = int((width - w)/2)
 
     #logo load
-    logo_path = '/userHome/userhome1/sojeong/demo/inference/total_image_syn/logo.png'
+    logo_path = './inference/total_image_syn/logo.png'
     logo = Image.open(logo_path)
     w_l, h_l = logo.size
     w_l, h_l = float(w_l), float(h_l)
@@ -36,7 +36,7 @@ def print_final(save_path, outdir):
     draw = ImageDraw.Draw(white_image)
     text = "http://ml.cau.ac.kr"  # 삽입할 텍스트
     font_size = 17
-    font_path = "/userHome/userhome1/sojeong/demo/inference/total_image_syn/NANUMSQUARE.TTF"  # 실제 폰트 파일의 경로로 변경
+    font_path = "./inference/total_image_syn/NANUMSQUARE.TTF"  # 실제 폰트 파일의 경로로 변경
     font = ImageFont.truetype(font_path, font_size)  # 폰트 경로 사용
     #font = ImageFont.load_default()  # 기본 폰트 사용 (다른 폰트 사용 가능)
 

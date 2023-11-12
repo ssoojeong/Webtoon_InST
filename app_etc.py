@@ -1,7 +1,6 @@
 import sys
-sys.path.append("/userHome/userhome1/sojeong/demo/")
-sys.path.append('/userHome/userhome1/sojeong/demo/DIS/IS_Net')
-sys.path.append('/userHome/userhome1/sojeong/demo/InST')
+sys.path.append('./DIS/IS_Net')
+sys.path.append('./InST')
 
 
 import numpy as np
@@ -26,13 +25,13 @@ device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
 #1. with canny
 def process_canny(input_image, image_resolution, ddim_steps, fore_scale, custom, embtype):
-    input_save_dir = os.path.join('/userHome/userhome1/sojeong/demo/data/content','test.png')
+    input_save_dir = os.path.join('./data/content','test.png')
     emb = None
     style_file = None
-    outdir = '/userHome/userhome1/sojeong/demo/demo_output/etc'
+    outdir = './demo_output/etc'
     if embtype=='Type 1': 
-        emb = '/userHome/userhome1/sojeong/demo/InST/logs/etc_12023-10-12T16-38-28_style_1/checkpoints/embeddings.pt'
-        style_file = '/userHome/userhome1/sojeong/demo/data/etc/1.png'
+        emb = './logs/etc_12023-10-12T16-38-28_style_1/checkpoints/embeddings.pt'
+        style_file = './data/etc/1.png'
 
     content_dir = input_image
     fg_wt = fore_scale
@@ -63,10 +62,10 @@ def create_demo_canny(max_images=12, default_num_images=3, theme=None):
         with gr.Accordion("Style Image Type", open=True, label="Style Image Type"):
                         click = gr.Radio(label="Target Style Type", choices=["Type 1"], value='Type 1')
                         with gr.Row():
-                            emb_type = gr.Image(label="Type 1", value="/userHome/userhome1/sojeong/demo/data/etc/1.png", type='filepath', shape=(1,1))
-        gr.Examples(examples=[["/userHome/userhome1/sojeong/demo/data/face/0048110.png", 512, 90, 0.5, 50,'Type 1'],
-                              ["/userHome/userhome1/sojeong/demo/data/face/0048169.png", 512, 200, 0.4, 50, 'Type 1'],
-                              ["/userHome/userhome1/sojeong/demo/data/face/0048190.png", 512, 26, 0.6, 50, 'Type 1']],
+                            emb_type = gr.Image(label="Type 1", value="./data/etc/1.png", type='filepath', shape=(1,1))
+        gr.Examples(examples=[["./data/face/0048110.png", 512, 90, 0.5, 50,'Type 1'],
+                              ["./data/face/0048169.png", 512, 200, 0.4, 50, 'Type 1'],
+                              ["./data/face/0048190.png", 512, 26, 0.6, 50, 'Type 1']],
                     inputs=[input_image, image_resolution, ddim_steps, fore_scale, canny_steps, click],
                     fn=process_canny,
                     outputs=result_gallery,
@@ -81,10 +80,10 @@ def create_demo_canny(max_images=12, default_num_images=3, theme=None):
 def process(input_image, image_resolution, ddim_steps, fore_scale, embtype):
     emb = None
     style_file = None
-    outdir = '/userHome/userhome1/sojeong/demo/demo_output/etc'
+    outdir = './demo_output/etc'
     if embtype=='Type 1':
-        emb = '/userHome/userhome1/sojeong/demo/InST/logs/etc_12023-10-12T16-38-28_style_1/checkpoints/embeddings.pt'
-        style_file = '/userHome/userhome1/sojeong/demo/data/etc/1.png'
+        emb = './InST/logs/etc_12023-10-12T16-38-28_style_1/checkpoints/embeddings.pt'
+        style_file = './data/etc/1.png'
  
     content_dir = input_image
     fg_wt = fore_scale
@@ -115,10 +114,10 @@ def create_demo_org(max_images=12, default_num_images=3, theme=None):
         with gr.Accordion("Style Image Type", open=True, label="Style Image Type"):
                         click = gr.Radio(label="Target Style Type", choices=["Type 1"], value='Type 1')
                         with gr.Row():
-                            emb_type = gr.Image(label="Type 1", value="/userHome/userhome1/sojeong/demo/data/etc/1.png", type='filepath', shape=(1,1))
-        gr.Examples(examples=[["/userHome/userhome1/sojeong/demo/data/face/0048110.png", 512, 90, 0.5, 'Type 1'],
-                              ["/userHome/userhome1/sojeong/demo/data/face/0048169.png", 512, 200, 0.4, 'Type 1'],
-                              ["/userHome/userhome1/sojeong/demo/data/face/0048190.png", 512, 26, 0.6, 'Type 1']],
+                            emb_type = gr.Image(label="Type 1", value="./data/etc/1.png", type='filepath', shape=(1,1))
+        gr.Examples(examples=[["./data/face/0048110.png", 512, 90, 0.5, 'Type 1'],
+                              ["./data/face/0048169.png", 512, 200, 0.4, 'Type 1'],
+                              ["./data/face/0048190.png", 512, 26, 0.6, 'Type 1']],
                     inputs=[input_image, image_resolution, ddim_steps, fore_scale, click],
                     fn=process,
                     outputs=result_gallery,

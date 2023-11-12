@@ -1,7 +1,6 @@
 import sys
-sys.path.append("/userHome/userhome1/sojeong/demo/")
-sys.path.append('/userHome/userhome1/sojeong/demo/DIS/IS_Net') #배경 분리
-sys.path.append('/userHome/userhome1/sojeong/demo/InST')
+sys.path.append('./DIS/IS_Net') #배경 분리
+sys.path.append('./InST')
 
 import gradio as gr
 import os

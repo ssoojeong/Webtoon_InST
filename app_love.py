@@ -1,7 +1,6 @@
 import sys
-sys.path.append("/userHome/userhome1/sojeong/demo/")
-sys.path.append('/userHome/userhome1/sojeong/demo/DIS/IS_Net')
-sys.path.append('/userHome/userhome1/sojeong/demo/InST')
+sys.path.append('./DIS/IS_Net')
+sys.path.append('./InST')
 
 
 import numpy as np
@@ -27,14 +26,14 @@ device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 def process_canny(input_image, image_resolution, ddim_steps, fore_scale, custom, embtype):
     emb = None
     style_file = None
-    outdir = '/userHome/userhome1/sojeong/demo/demo_output/love'
+    outdir = './demo_output/love'
     
     if embtype=='Type 1':
-        emb = '/userHome/userhome1/sojeong/demo/InST/logs/yumi_12023-10-29T21-23-14_yumi_1/checkpoints/embeddings.pt'
-        style_file = '/userHome/userhome1/sojeong/demo/data/yumi/yumi.png'
+        emb = './logs/yumi_12023-10-29T21-23-14_yumi_1/checkpoints/embeddings.pt'
+        style_file = './data/yumi/yumi.png'
     # elif embtype=='Type 2':
-    #     emb = '/userHome/userhome1/sojeong/demo/InST/logs/yumi_22023-10-30T02-58-44_yumi_2/checkpoints/embeddings.pt'
-    #     style_file = '/userHome/userhome1/sojeong/demo/data/new_data/yumi_2/yumi2.png'
+    #     emb = './InST/logs/yumi_22023-10-30T02-58-44_yumi_2/checkpoints/embeddings.pt'
+    #     style_file = './data/new_data/yumi_2/yumi2.png'
     
     content_dir = input_image
     fg_wt = fore_scale
@@ -65,9 +64,9 @@ def create_demo_canny(max_images=12, default_num_images=3, theme=None):
         with gr.Accordion("Style Image Type", open=True, label="Style Image Type"):
                         click = gr.Radio(label="Target Style Type", choices=["Type 1"], value='Type 1')
                         with gr.Row():
-                            emb_type = gr.Image(label="Type 1", value="/userHome/userhome1/sojeong/demo/data/ui/yumi.png", type='filepath', shape=(1,1))
-        gr.Examples(examples=[["/userHome/userhome1/sojeong/demo/data/face/0048110.png", 512, 15, 0.7, 50, 'Type 1'],
-                              ["/userHome/userhome1/sojeong/demo/data/face/0048143.png", 512, 18, 0.7, 50, 'Type 1'],
+                            emb_type = gr.Image(label="Type 1", value="./data/ui/yumi.png", type='filepath', shape=(1,1))
+        gr.Examples(examples=[["./data/face/0048110.png", 512, 15, 0.7, 50, 'Type 1'],
+                              ["./data/face/0048143.png", 512, 18, 0.7, 50, 'Type 1'],
                               ],
                     inputs=[input_image, image_resolution, ddim_steps, fore_scale, canny_steps, click],
                     fn=process_canny,
@@ -84,14 +83,14 @@ def create_demo_canny(max_images=12, default_num_images=3, theme=None):
 def process(input_image, image_resolution, ddim_steps, fore_scale, embtype):
     emb = None
     style_file = None
-    outdir = '/userHome/userhome1/sojeong/demo/demo_output/love'
+    outdir = './demo_output/love'
     
     if embtype=='Type 1':
-        emb = '/userHome/userhome1/sojeong/demo/InST/logs/yumi_12023-10-29T21-23-14_yumi_1/checkpoints/embeddings.pt'
-        style_file = '/userHome/userhome1/sojeong/demo/data/yumi/yumi.png'
+        emb = './InST/logs/yumi_12023-10-29T21-23-14_yumi_1/checkpoints/embeddings.pt'
+        style_file = './data/yumi/yumi.png'
     # elif embtype=='Type 2':
-    #     emb = '/userHome/userhome1/sojeong/demo/InST/logs/yumi_22023-10-30T02-58-44_yumi_2/checkpoints/embeddings.pt'
-    #     style_file = '/userHome/userhome1/sojeong/demo/data/new_data/yumi_2/yumi2.png'
+    #     emb = './InST/logs/yumi_22023-10-30T02-58-44_yumi_2/checkpoints/embeddings.pt'
+    #     style_file = './data/new_data/yumi_2/yumi2.png'
     
     content_dir = input_image
     fg_wt = fore_scale
@@ -121,9 +120,9 @@ def create_demo_org(max_images=12, default_num_images=3, theme=None):
         with gr.Accordion("Style Image Type", open=True, label="Style Image Type"):
                         click = gr.Radio(label="Target Style Type", choices=["Type 1"], value='Type 1')
                         with gr.Row():
-                            emb_type = gr.Image(label="Type 1", value="/userHome/userhome1/sojeong/demo/data/ui/yumi.png", type='filepath', shape=(1,1))
-        gr.Examples(examples=[["/userHome/userhome1/sojeong/demo/data/face/0048110.png", 512, 15, 0.7, 'Type 1'],
-                              ["/userHome/userhome1/sojeong/demo/data/face/0048143.png", 512, 18, 0.7, 'Type 1']],
+                            emb_type = gr.Image(label="Type 1", value="./data/ui/yumi.png", type='filepath', shape=(1,1))
+        gr.Examples(examples=[["./data/face/0048110.png", 512, 15, 0.7, 'Type 1'],
+                              ["./data/face/0048143.png", 512, 18, 0.7, 'Type 1']],
                     inputs=[input_image, image_resolution, ddim_steps, fore_scale, click],
                     fn=process,
                     outputs=result_gallery,

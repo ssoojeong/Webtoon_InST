@@ -1,8 +1,7 @@
 import sys
-sys.path.append("/userHome/userhome1/sojeong/demo/")
-sys.path.append("/userHome/userhome1/sojeong/demo/InST")
-sys.path.append('/userHome/userhome1/sojeong/demo/DIS/IS_Net')
-sys.path.append('/userHome/userhome1/sojeong/demo/inference/total_image_syn')
+sys.path.append("./InST")
+sys.path.append('./DIS/IS_Net')
+sys.path.append('./inference/total_image_syn')
 
 from diffusers.utils import load_image
 import numpy as np
