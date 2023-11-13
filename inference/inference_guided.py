@@ -1,7 +1,6 @@
 import sys
 sys.path.append("./kornia_canny")
-
-from kornia_canny import *
+sys.path.append(os.path.dirname(sys.path[0]))
 
 import argparse, os, sys, glob
 import PIL
@@ -19,13 +18,12 @@ from contextlib import nullcontext
 import time
 from pytorch_lightning import seed_everything
 import cv2
+from transformers import CLIPProcessor, CLIPModel
 
-sys.path.append(os.path.dirname(sys.path[0]))
 from ldm.util import instantiate_from_config
 from ldm.models.diffusion.ddim import DDIMSampler
 from ldm.models.diffusion.plms import PLMSSampler
-
-from transformers import CLIPProcessor, CLIPModel
+from kornia_canny import *
 
 import argparse
 
