@@ -54,11 +54,7 @@ def get_parser():
         )
     return parser
 
-# #cuda 지정
-# import os
-# os.environ["CUDA_DEVICE_ORDER"]="PCI_BUS_ID"  # Arrange GPU devices starting from 0
-# os.environ["CUDA_VISIBLE_DEVICES"]= "1"
-
+#cuda
 device = torch.device("cuda") if torch.cuda.is_available() else torch.device("cpu")
 
 def chunk(it, size):
@@ -109,11 +105,11 @@ def resize_prev(img, basewidth):
 #config 정의
 config='./InST/configs/stable-diffusion/v1-inference.yaml'
 ckpt="./InST/models/sd/sd-v1-4.ckpt"
-
 config = OmegaConf.load(f"{config}")
 model = load_model_from_config(config, f"{ckpt}")
 
-#1. original InST inference (without canny)
+
+#(case 1). original InST inference (without canny)
 def main(outdir=None, emb=None, prompt = '', content_dir = '', style_dir='',ddim_steps = 50,strength = 0.5, model = model, seed=42):
     count = 'love_test_10' #self
     
@@ -127,13 +123,10 @@ def main(outdir=None, emb=None, prompt = '', content_dir = '', style_dir='',ddim
     
     precision="autocast"
     seed_everything(seed)
-
-    #######
     
     model.embedding_manager.load(emb)
     model = model.to(device)
 
-    #######
     outdir = os.path.join(outdir, 'style_trans')
     os.makedirs(outdir, exist_ok=True)
     
@@ -219,7 +212,7 @@ def main(outdir=None, emb=None, prompt = '', content_dir = '', style_dir='',ddim
     return output, save_dir, count
 
 
-#2. with canny 
+#(case 2). with canny 
 def canny_test_sca(outdir=None, emb=None, prompt = '', content_dir = '', style_dir='',ddim_steps = 50, strength = 0.5, model = model, seed=42, custom=50):
     count = 'love_test_10' #self
     
@@ -234,13 +227,10 @@ def canny_test_sca(outdir=None, emb=None, prompt = '', content_dir = '', style_d
     precision="autocast"
     cannydir = outdir
     seed_everything(seed)
-
-    # #######
     
     model.embedding_manager.load(emb)
     model = model.to(device)
 
-    # #######
     outdir = os.path.join(outdir, 'style_trans')
     os.makedirs(outdir, exist_ok=True)
     #styled canny path
@@ -281,7 +271,7 @@ def canny_test_sca(outdir=None, emb=None, prompt = '', content_dir = '', style_d
     print(f"target t_enc is {t_enc} steps")
     
 
-    #1. Canny styling
+    #1). Canny styling
     precision_scope = autocast if precision == "autocast" else nullcontext
     with torch.no_grad():
         with precision_scope("cuda"):
@@ -300,7 +290,6 @@ def canny_test_sca(outdir=None, emb=None, prompt = '', content_dir = '', style_d
                         #conditioning data
                         c = model.get_learned_conditioning(prompts, style_image)
                         ca = model.get_learned_conditioning(prompts, canny_image)
-                        
 
                         t_enc = int(strength * 1000) #500
                         
@@ -350,7 +339,7 @@ def canny_test_sca(outdir=None, emb=None, prompt = '', content_dir = '', style_d
 
                 toc = time.time()
                 
-    #2. styled canny image load
+    #2). styled canny image load
     scanny_path=sc_path
     scanny_image = load_img(scanny_path).to(device)
     scanny_image = repeat(scanny_image, '1 ... -> b ...', b=batch_size)
@@ -379,19 +368,19 @@ def canny_test_sca(outdir=None, emb=None, prompt = '', content_dir = '', style_d
                         t_enc = int(strength * 1000) #500
                         
                         #noising start
-                        x_noisy = model.q_sample(x_start=init_latent, t=torch.tensor([t_enc]*batch_size).to(device)) #1.forward
+                        x_noisy = model.q_sample(x_start=init_latent, t=torch.tensor([t_enc]*batch_size).to(device)) 
 
                         if custom == 0:
-                            model_output = model.apply_model(x_noisy, torch.tensor([t_enc]*batch_size).to(device), c) #2.pred_noise -> #3.reverse
+                            model_output = model.apply_model(x_noisy, torch.tensor([t_enc]*batch_size).to(device), c) 
                             z_enc = sampler.stochastic_encode(init_latent, torch.tensor([t_enc]*batch_size).to(device),
                                                             noise = model_output, use_original_steps = True)
                         else:
-                            #1. style canny conditioning
-                            model_output = model.apply_model(x_noisy, torch.tensor([1]*batch_size).to(device), sca) #2.pred_noise -> #3.reverse
+                            #(1). style canny conditioning
+                            model_output = model.apply_model(x_noisy, torch.tensor([1]*batch_size).to(device), sca) 
                             z_enc = sampler.stochastic_encode(init_latent, torch.tensor([1]*batch_size).to(device),
                                                             noise = model_output, use_original_steps = True)
-                            #2. style conditioning
-                            model_output = model.apply_model(z_enc, torch.tensor([t_enc]*batch_size).to(device), c) #2.pred_noise -> #3.reverse
+                            #(2). style conditioning
+                            model_output = model.apply_model(z_enc, torch.tensor([t_enc]*batch_size).to(device), c) 
                             z_enc = sampler.stochastic_encode(init_latent, torch.tensor([t_enc]*batch_size).to(device),
                                                             noise = model_output, use_original_steps = True)
                             
