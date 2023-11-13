@@ -13,7 +13,7 @@ We recommend running our code using:
 
 Clone the repositories.
    ```sh
-   git clone https://github.com/ssojeong/Webtoon_InST.git
+   git clone https://github.com/ssoojeong/Webtoon_InST.git
    git clone https://github.com/zyxElsa/InST.git
    ```
 
