@@ -48,8 +48,8 @@ Run following commands and open the shared link.
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 
-### Cf. Different style guidance scales for background and foreground
-If you want to give different style guidance to the background and foreground, clone the repository below and use it.
+### cf. Different style guidance scales for background and foreground
+If you want to give different style guidance to the background andforeground, clone the repository below and use it.
   ```sh
   git clone https://github.com/xuebinqin/DIS.git
   ```
