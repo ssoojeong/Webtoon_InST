@@ -43,7 +43,7 @@ Run following commands and open the shared link.
   ```sh
   python demo_canny.py
   ```
-- The Gradio app allows you to change hyperparameters(steps, style guindace sclae, etc.)
+- The Gradio app allows you to change hyperparameters(steps, style guindace sclae, etc.)
 - The [FFHQ](https://github.com/NVlabs/ffhq-dataset.git) sample datasets has been uploaded in the `./data/face`, so you can use it for testing.
 <p align="right">(<a href="#top">back to top</a>)</p>
 
