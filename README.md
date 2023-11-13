@@ -49,7 +49,7 @@ Run following commands and open the shared link.
 
 
 ### cf. Different style guidance scales for background and foreground
-If you want to give different style guidance to the background andforeground, clone the repository below and use it.
+If you want to give different style guidance to the background and foreground, clone the repository below and use it.
   ```sh
   git clone https://github.com/xuebinqin/DIS.git
   ```
