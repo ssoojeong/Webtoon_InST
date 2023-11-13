@@ -33,7 +33,7 @@ Download the pretrained models and save it to the indicated location.
 | [YeosinGangrim](https://drive.google.com/drive/folders/1x0XIFSX6cKO3bjdaI3JOdUtLppqf9Qmy?usp=sharing) | ./InST/logs/yeosin/ | [여신강림-네이버웹툰](https://comic.naver.com/webtoon/list?titleId=703846)
 | [UglyPeoples](https://drive.google.com/drive/folders/1IQzcxdi8F2nAQaiZwtPyEqimt_UaZtH9?usp=sharing) | ./InST/logs/ugly/ | [어글리피플즈-네이버웹툰](https://comic.naver.com/webtoon/list?titleId=732953)
 | [YumiSepo](https://drive.google.com/drive/folders/1CI4e3Px_AC1ZIJokTtkF1wrjq2jYkVp4?usp=sharing) | ./InST/logs/yumi/ | [유미의세포-네이버웹툰](https://series.naver.com/comic/detail.series?productNo=3900477)
-| [Other style](https://drive.google.com/drive/folders/141l8dvD_tR7z2uqqnPwiPUht4Gukcge0?usp=sharing) | ./InST/logs/etc/ | [An Image in the paper](https://arxiv.org/abs/2211.13203)
+| [Other style](https://drive.google.com/drive/folders/141l8dvD_tR7z2uqqnPwiPUht4Gukcge0?usp=sharing) | ./InST/logs/etc/ | [An Image in the InST(CVPR, 2023) paper](https://arxiv.org/abs/2211.13203)
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 
