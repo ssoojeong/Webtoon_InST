@@ -1,8 +1,8 @@
-#canny edge 만드는 코드
+#canny edge 생성
 import kornia as K
 from kornia.core import Tensor
-from PIL import Image
 
+from PIL import Image
 import cv2
 import matplotlib.pyplot as plt
 from einops import rearrange, repeat
