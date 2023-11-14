@@ -48,6 +48,12 @@ Run following commands and open the shared link.
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 
+### 4. Results
+- After translating an image with the gradio app, you can check the generated foler, `./demo_output`.
+- Inside this folder, you'll find subfolders like `./demo_output/yeosin`, `./demo_output/ugly`, `./demo_output/love`, `./demo_output/etc`, each containing images transformed into their respective webtoon styles.
+<p align="right">(<a href="#top">back to top</a>)</p>
+
+
 ### cf. Different style guidance scales for background and foreground
 If you want to give different style guidance to the background and foreground, clone the repository below and use it.
   ```sh
