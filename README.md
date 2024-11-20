@@ -1,5 +1,12 @@
 # Webtoon_InST
 
+### Preview of the Demo
+![demo preview](figure/demo.jpg)
+
+- Image-to-Image Translation 데모 영상 [Video](https://youtu.be/4-QMtaXoLyc?si=MmDpkumInI8QuE6j)
+- Text-to-Image Generation 안내 영상 [Video](https://youtu.be/pdjXOimKhbk?si=CJflk50u4HBIKWa9)
+- Text-to-Image Generation 데모 영상 [Video](https://youtu.be/GM8euTbBVh8?si=ThZpmWPVRLfiu6fp)
+
 ## Getting Started
 
 We recommend running our code using:
@@ -8,6 +15,8 @@ We recommend running our code using:
 - Python 3, Anaconda
 
 <p align="right">(<a href="#top">back to top</a>)</p>
+
+---
 
 ### 1. Installation
 
@@ -53,6 +62,8 @@ Run following commands and open the shared link.
 - Inside this folder, you'll find subfolders like `./demo_output/yeosin`, `./demo_output/ugly`, `./demo_output/love`, `./demo_output/etc`, each containing images transformed into their respective webtoon styles.
 <p align="right">(<a href="#top">back to top</a>)</p>
 
+### 🎨 Image Samples
+![sample images](figure/samples.png)
 
 ### cf. Different style guidance scales for background and foreground
 If you want to give different style guidance to the background and foreground, clone the repository below and use it.
@@ -61,3 +72,14 @@ If you want to give different style guidance to the background and foreground, c
   ```
 The Implementation code is already in this inference python file, but the detailed implementation method will be updated later.
 <p align="right">(<a href="#top">back to top</a>)</p>
+
+---
+
+
+## Additional Experiments and Reports 
+### Preview of [Report](Webtoon_Image_Style_Transfer_based_on_Diffusion_models.pdf)
+![results](figure/results.png)
+- In our experimentation with this proposed method, using Naver webtoon images as style images and FFHQ dataset images as content, we evaluated the performance of style transfer on human faces.
+
+<p align="right">(<a href="#top">back to top</a>)</p>
+
